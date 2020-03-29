@@ -8,7 +8,7 @@ public class Práctica71 {
     static Scanner lector = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean bucle = true;
+        boolean bucle = false;
         System.out.println("Introduzca ruta origen.");
         String rutaOrigen = lector.nextLine();
         System.out.println("Introduzca ruta destino.");
@@ -22,6 +22,7 @@ public class Práctica71 {
                 switch (Integer.parseInt(lector.nextLine())) {
                     case 1:
                         InputStream(rutaOrigen, rutaDestino);
+                        bucle = true;
                         break;
 
                 }
