@@ -20,20 +20,23 @@ public class Input {
             do {
                 posicion = entrada.read();
                 if (posicion != -1){
-                    if (Character.toString((char)posicion).equals("#")){
-                        salida.write((char)10);
-                        if (i>=0 && i<6){
-                            byte [] elemento_escrito = elementos[i].getBytes();
-                            salida.write(elemento_escrito);
-                        }
-                        i++;
+                    switch (Character.toString((char)posicion)) {
+                        case "#":
+                            salida.write((char)10);
+                            if (i>=0 && i<6){
+                                byte [] elemento_escrito = elementos[i].getBytes();
+                                salida.write(elemento_escrito);
+                            }   i++;
+                            break;
+                        case "{":
+                            salida.write((char)10);
+                            salida.write((char)10);
+                            i=0;
+                            break;
+                        default:
+                            salida.write(posicion);
+                            break;
                     }
-                    else if (Character.toString((char)posicion).equals("{")){
-                        salida.write((char)10);
-                        salida.write((char)10);
-                        i=0;
-                    }
-                    else {salida.write(posicion);}
                 }
             } while (posicion != -1);
             salida.close();
